@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+
+  hyperf:
+    image: hyperf/hyperf:8.1-alpine-v3.18-swoole
+    privileged: true
+    entrypoint: ["/bin/sh"]
+    volumes:
+      - ./:/data/project
+    ports:
+      - 9501:9501
+#    depends_on:
+#      - hyperf-skeleton-mariadb
+#      - hyperf-skeleton-redis
+
+#  hyperf-skeleton-mariadb:
+#    container_name: hyperf-skeleton-mariadb
+#    image: mariadb:latest
+#    volumes:
+#      - ./.docker/mariadb:/var/lib/mysql
+#    ports:
+#      - 3306:3306
+#    environment:
+#      MYSQL_ROOT_PASSWORD: "secret"
+#      MYSQL_DATABASE: "hyperf-skeleton"
+#
+#  hyperf-skeleton-redis:
+#    container_name: hyperf-skeleton-redis
+#    image: redis:latest
+#    ports:
+#      - 6379:6379

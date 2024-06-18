@@ -11,9 +11,12 @@ declare(strict_types=1);
  */
 
 use App\Controller\UserController;
+use App\Controller\OpportunityController;
 use Hyperf\HttpServer\Router\Router;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
+
+Router::post('/data-opportunity', 'App\Controller\OpportunityController@index');
 
 Router::get('/favicon.ico', function () {
     return '';
