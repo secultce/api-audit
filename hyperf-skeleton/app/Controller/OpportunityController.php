@@ -10,6 +10,9 @@ class OpportunityController extends AbstractController
 {
     public function index(RequestInterface $request, ResponseInterface $response)
     {
-       return $request->all();
+        foreach($request->all() as $key => $value) {
+            var_dump($key);
+        }
+//       return $request->all();
     }
 }
