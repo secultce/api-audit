@@ -13,14 +13,19 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\DbConnection\Db;
+use Hyperf\Collection\Arr;
+
 class IndexController extends AbstractController
 {
     public function index()
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
+        Db::enableQueryLog();
+        var_dump(Arr::last(Db::getQueryLog()));
+//        die;
+//        $user = $this->request->input('user', 'Hyperf');
+//        $method = $this->request->getMethod();
 
-        $users = Db::select('SELECT * FROM `audit_action` WHERE id = ?',[1]); // return array
+        $users = Db::select('SELECT * FROM audit_action;'); // return array
         return $users;
     }
 }
