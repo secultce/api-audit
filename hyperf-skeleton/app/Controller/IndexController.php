@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Hyperf\DbConnection\Db;
 class IndexController extends AbstractController
 {
     public function index()
@@ -19,9 +20,7 @@ class IndexController extends AbstractController
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
 
-        return [
-            'method' => $method,
-            'message' => "Hello Juin Oliveira.",
-        ];
+        $users = Db::select('SELECT * FROM `audit_action` WHERE id = ?',[1]); // return array
+        return $users;
     }
 }

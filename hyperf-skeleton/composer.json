@@ -20,8 +20,8 @@
         "hyperf/config": "~3.1.0",
         "hyperf/config-aliyun-acm": "~3.1.0",
         "hyperf/constants": "~3.1.0",
-        "hyperf/database": "~3.1.0",
-        "hyperf/db-connection": "~3.1.0",
+        "hyperf/database": "^3.1",
+        "hyperf/db-connection": "^3.1",
         "hyperf/elasticsearch": "~3.1.0",
         "hyperf/engine": "^2.10",
         "hyperf/framework": "~3.1.0",
@@ -47,6 +47,7 @@
         "hyperf/watcher": "^3.1",
         "mockery/mockery": "^1.0",
         "phpstan/phpstan": "^1.0",
+        "psr/container":  "^2.0",
         "swoole/ide-helper": "^5.0"
     },
     "suggest": {

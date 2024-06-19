@@ -10,6 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use function Hyperf\Support\env;
+use Hyperf\Database\Commands\ModelOption;
 
 return [
     'default' => [
@@ -44,7 +45,10 @@ return [
                 'force_casts' => true,
                 'inheritance' => 'Model',
                 'uses' => '',
+                'refresh_fillable' => true,
                 'table_mapping' => [],
+                'with_comments' => true,
+                'property_case' => ModelOption::PROPERTY_SNAKE_CASE,
             ],
         ],
     ],
