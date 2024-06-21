@@ -18,7 +18,7 @@ class AuditData extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected array $fillable = ['id', 'key', 'value', 'audit_action_id'];
+    protected array $fillable = ['id', 'key', 'value','object_id', 'audit_action_id'];
 
     /**
      * The attributes that should be cast to native types.

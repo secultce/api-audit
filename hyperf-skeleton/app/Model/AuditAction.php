@@ -18,7 +18,7 @@ class AuditAction extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected array $fillable = ['id','user_id', 'type', 'action', 'message'];
+    protected array $fillable = ['id','user_id', 'type','object_id', 'action', 'message'];
 
     /**
      * The attributes that should be cast to native types.

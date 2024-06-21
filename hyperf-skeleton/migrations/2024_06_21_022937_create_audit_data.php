@@ -15,6 +15,7 @@ class CreateAuditData extends Migration
             $table->bigIncrements('id');
             $table->string('key',256)->nullable();
             $table->longText('value')->nullable();
+            $table->string('object_id', 245)->nullable();
             $table->unsignedBigInteger('audit_action_id');
             $table->foreign('audit_action_id')->references('id')->on('audit_action');
             $table->datetimes();
