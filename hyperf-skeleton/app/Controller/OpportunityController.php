@@ -13,7 +13,13 @@ use Hyperf\DbConnection\Db;
 
 class OpportunityController extends AbstractController
 {
-    public function index(RequestInterface $request, ResponseInterface $response)
+    public function index(string $id)
+    {
+        return AuditAction::join('audit_data', 'audit_action.id', '=', 'audit_data.audit_action_id')
+            ->where('audit_data.object_id', $id)
+            ->where('audit_action.object_id', $id)->get();
+    }
+    public function store(RequestInterface $request, ResponseInterface $response)
     {
         $requestMethod = $request->all();
         /*  Refatorar para adicionar chave e valor em caso de haver alteração na requisição

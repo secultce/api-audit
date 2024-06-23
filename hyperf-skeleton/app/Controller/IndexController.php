@@ -14,12 +14,13 @@ namespace App\Controller;
 
 use Hyperf\DbConnection\Db;
 use Hyperf\Collection\Arr;
-
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
+//#[AutoController]
 class IndexController extends AbstractController
 {
-    public function index()
+    public function index(string $name)
     {
-
-
+        return ['name' => $name];
     }
 }
