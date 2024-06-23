@@ -25,8 +25,4 @@ class AuditAction extends Model
      */
     protected array $casts = ['id' => 'integer'];
 
-    function saveAction(array $data): void
-    {
-        $this->create($data);
-    }
 }

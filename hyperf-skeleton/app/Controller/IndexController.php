@@ -19,13 +19,7 @@ class IndexController extends AbstractController
 {
     public function index()
     {
-        Db::enableQueryLog();
-        var_dump(Arr::last(Db::getQueryLog()));
-//        die;
-//        $user = $this->request->input('user', 'Hyperf');
-//        $method = $this->request->getMethod();
 
-        $users = Db::select('SELECT * FROM audit_action;'); // return array
-        return $users;
+
     }
 }
