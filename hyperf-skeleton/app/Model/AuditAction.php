@@ -24,4 +24,9 @@ class AuditAction extends Model
      * The attributes that should be cast to native types.
      */
     protected array $casts = ['id' => 'integer'];
+
+    function saveAction(array $data): void
+    {
+        $this->create($data);
+    }
 }
