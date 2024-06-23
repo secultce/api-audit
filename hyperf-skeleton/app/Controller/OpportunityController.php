@@ -15,9 +15,37 @@ class OpportunityController extends AbstractController
 {
     public function index(string $id)
     {
-        return AuditAction::join('audit_data', 'audit_action.id', '=', 'audit_data.audit_action_id')
+        $auditActionAndData = AuditAction::join('audit_data', 'audit_action.id', '=', 'audit_data.audit_action_id')
             ->where('audit_data.object_id', $id)
             ->where('audit_action.object_id', $id)->get();
+        $resultArray = [];
+        $tempArray = [];
+
+        foreach ($auditActionAndData as $item) {
+            $identifier = $item['user_id'] . $item['type'] . $item['object_id'] . $item['action'] . $item['message'] . $item['created_at'] . $item['updated_at'];
+
+            if (!isset($tempArray[$identifier])) {
+                $tempArray[$identifier] = [
+                    "user_id" => $item['user_id'],
+                    "type" => $item['type'],
+                    "object_id" => $item['object_id'],
+                    "action" => $item['action'],
+                    "message" => $item['message'],
+                    "created_at" => $item['created_at'],
+                    "updated_at" => $item['updated_at'],
+                    "data" => []
+                ];
+            }
+
+            $tempArray[$identifier]['data'][] = [
+                "key" => $item['key'],
+                "value" => $item['value'],
+                "audit_action_id" => $item['audit_action_id']
+            ];
+        }
+
+        $resultArray = array_values($tempArray);
+        return json_encode($resultArray, JSON_PRETTY_PRINT);
     }
     public function store(RequestInterface $request, ResponseInterface $response)
     {
