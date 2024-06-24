@@ -18,9 +18,9 @@ Router::addRoute('GET','/index/{name}', 'App\Controller\IndexController@index');
 
 Router::addGroup('/opportunity', function (){
     Router::get('/{id}', 'App\Controller\OpportunityController@index');
-    Router::post('store', 'App\Controller\UserController@store');
-    Router::get('update', 'App\Controller\UserController@update');
-    Router::post('delete', 'App\Controller\UserController@delete');
+    Router::post('/store', 'App\Controller\OpportunityController@store');
+    Router::get('update', 'App\Controller\OpportunityController@update');
+    Router::post('delete', 'App\Controller\OpportunityController@delete');
 });
 
 
