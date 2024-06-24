@@ -14,9 +14,15 @@ use App\Controller\UserController;
 use App\Controller\OpportunityController;
 use Hyperf\HttpServer\Router\Router;
 
-Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
+Router::addRoute('GET','/index/{name}', 'App\Controller\IndexController@index');
 
-Router::post('/data-opportunity', 'App\Controller\OpportunityController@index');
+Router::addGroup('/opportunity', function (){
+    Router::get('/{id}', 'App\Controller\OpportunityController@index');
+    Router::post('/store', 'App\Controller\OpportunityController@store');
+    Router::get('update', 'App\Controller\OpportunityController@update');
+    Router::post('delete', 'App\Controller\OpportunityController@delete');
+});
+
 
 Router::get('/favicon.ico', function () {
     return '';
