@@ -12,16 +12,15 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Hyperf\DbConnection\Db;
+use Hyperf\Collection\Arr;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
+//#[AutoController]
 class IndexController extends AbstractController
 {
-    public function index()
+    public function index(string $name)
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
-
-        return [
-            'method' => $method,
-            'message' => "Hello Juin Oliveira.",
-        ];
+        return ['name' => $name];
     }
 }

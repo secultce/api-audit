@@ -14,20 +14,27 @@ use Psr\Log\LogLevel;
 
 use function Hyperf\Support\env;
 
+$appEnv = env('APP_ENV', 'dev');
+
+$logLevel = [
+    LogLevel::ALERT,
+    LogLevel::CRITICAL,
+    LogLevel::EMERGENCY,
+    LogLevel::ERROR,
+    LogLevel::INFO,
+    LogLevel::NOTICE,
+    LogLevel::WARNING,
+];
+
+if ($appEnv === 'dev') {
+    $logLevel[] = LogLevel::DEBUG;
+}
+
 return [
-    'app_name' => env('APP_NAME', 'skeleton'),
-    'app_env' => env('APP_ENV', 'dev'),
+    'app_name' => env('APP_NAME', 'rinha-de-backend'),
+    'app_env' => $appEnv,
     'scan_cacheable' => env('SCAN_CACHEABLE', false),
     StdoutLoggerInterface::class => [
-        'log_level' => [
-            LogLevel::ALERT,
-            LogLevel::CRITICAL,
-            LogLevel::DEBUG,
-            LogLevel::EMERGENCY,
-            LogLevel::ERROR,
-            LogLevel::INFO,
-            LogLevel::NOTICE,
-            LogLevel::WARNING,
-        ],
+        'log_level' => $logLevel,
     ],
 ];
