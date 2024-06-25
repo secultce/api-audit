@@ -9,8 +9,19 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use App\Model\AuditAction;
 use App\Service\AuditData as ServiceAuditData;
 use App\Model\AuditData;
-use Hyperf\DbConnection\Db;
+use OpenApi\Annotations as OA;
 
+
+/**
+ * @OA\Info(title="Minha API", version="1.0.0")
+ */
+
+/**
+ * @OA\Get(
+ *     path="/opportunity",
+ *     @OA\Response(response="200", description="Lista de registros")
+ * )
+ */
 class OpportunityController extends AbstractController
 {
     public function index(string $id)
