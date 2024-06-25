@@ -23,6 +23,13 @@ Router::addGroup('/opportunity', function (){
     Router::post('delete', 'App\Controller\OpportunityController@delete');
 });
 
+Router::get('/swagger', function () {
+    return file_get_contents(BASE_PATH . '/storage/swagger/http.json');
+});
+
+Router::get('/docs-swagger', function () {
+    return file_get_contents(BASE_PATH . '/public/index.html');
+});
 
 Router::get('/favicon.ico', function () {
     return '';
