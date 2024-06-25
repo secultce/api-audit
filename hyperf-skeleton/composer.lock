@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5eef86a0fc3733c2efada3be5775de61",
+    "content-hash": "7dfd4b9ad64ed6cb30300e352eb318dd",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -4195,6 +4195,72 @@
                 }
             ],
             "time": "2024-05-30T09:57:29+00:00"
+        },
+        {
+            "name": "hyperf/swagger",
+            "version": "v3.1.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/swagger.git",
+                "reference": "4fe610afc2657eecff23451cb9eb0a91602fabee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/swagger/zipball/4fe610afc2657eecff23451cb9eb0a91602fabee",
+                "reference": "4fe610afc2657eecff23451cb9eb0a91602fabee",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/command": "~3.1.0",
+                "php": ">=8.1",
+                "zircote/swagger-php": "^4.6"
+            },
+            "suggest": {
+                "hyperf/validation": "Required to use SwaggerRequest."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Swagger\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Swagger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A swagger library for Hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "hyperf",
+                "php",
+                "swagger",
+                "swoole"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2024-06-17T01:51:06+00:00"
         },
         {
             "name": "hyperf/tappable",

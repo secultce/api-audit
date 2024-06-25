@@ -9,21 +9,19 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use App\Model\AuditAction;
 use App\Service\AuditData as ServiceAuditData;
 use App\Model\AuditData;
+use Hyperf\Swagger\Annotation as SA;
 use OpenApi\Annotations as OA;
 
-
-/**
- * @OA\Info(title="Minha API", version="1.0.0")
- */
-
-/**
- * @OA\Get(
- *     path="/opportunity",
- *     @OA\Response(response="200", description="Lista de registros")
- * )
- */
+#[SA\HyperfServer(name: 'http')]
 class OpportunityController extends AbstractController
 {
+    #[SA\Get('/opportunity', summary: 'Retorna dados de uma oportuniade', tags: ['opportunity'])]
+    #[SA\QueryParameter(name: 'id', description: 'Id da Oportunidade')]
+//    #[SA\RequestBody(content: new SA\JsonContent(properties: [
+//        new SA\Property(property: 'nickname', type: 'integer', rules: 'required|string'),
+//        new SA\Property(property: 'gender', type: 'integer', rules: 'required|integer|in:0,1,2'),
+//    ]))]
+    #[SA\Response(response: '200', content: new SA\JsonContent(ref: '#/components/schemas/SavedSchema'))]
     public function index(string $id)
     {
         $auditActionAndData = AuditAction::join('audit_data', 'audit_action.id', '=', 'audit_data.audit_action_id')
