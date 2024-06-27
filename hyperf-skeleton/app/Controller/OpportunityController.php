@@ -59,42 +59,56 @@ class OpportunityController extends AbstractController
     public function store(RequestInterface $request, ResponseInterface $response)
     {
         $requestMethod = $request->all();
-        /*  Refatorar para adicionar chave e valor em caso de haver alteração na requisição
-            comparado ao que está no banco
-         *
+        //Consutando a oportunidade no banco de dados
         $entityAuditData = AuditData::where('object_id',$requestMethod["audit"]["object_id"])->get();
         $arrayEntityAuditData = $entityAuditData->toArray();
-        if(count($arrayEntityAuditData) == 0) {
-            $jobAuditAction = new ServiceAuditData($request);
-            $entity = $jobAuditAction->create();
-
-            foreach ($requestMethod as $keyAction => $valueAction) {
-                $auditData = [
-                    'key' => $keyAction,
-                    'value' => $valueAction,
-                    'object_id' => $entity['entityId'],
-                    'audit_action_id' => $entity['actionId']
-                ];
-                AuditData::create($auditData);
-            }
-        }
-         */
+        //Gravando a ação
         $jobAuditAction = new ServiceAuditData($request);
         $entity = $jobAuditAction->create();
-        try {
-            foreach ($requestMethod as $keyAction => $valueAction) {
-                $auditData = [
-                    'key' => $keyAction,
-                    'value' => $valueAction,
-                    'object_id' => $entity['entityId'],
-                    'audit_action_id' => $entity['actionId']
-                ];
-                AuditData::create($auditData);
-            }
-            return $response->json(['message' => 'success']);
-        }catch (\Exception $exception){
-            return $response->json(['message' => $exception->getMessage()]);
+
+        foreach ($requestMethod as $keyAction => $valueAction) {
+            $auditData = [
+                'key' => $keyAction,
+                'value' => $valueAction,
+                'object_id' => $entity['entityId'],
+                'audit_action_id' => $entity['actionId']
+            ];
+            AuditData::create($auditData);
         }
+        return $response->json(['message' => 'success']);
+        //Se não tiver nada no banco, realiza a gravação dos dados
+//        if(count($arrayEntityAuditData) == 0) {
+//            foreach ($requestMethod as $keyAction => $valueAction) {
+//                $auditData = [
+//                    'key' => $keyAction,
+//                    'value' => $valueAction,
+//                    'object_id' => $entity['entityId'],
+//                    'audit_action_id' => $entity['actionId']
+//                ];
+//                AuditData::create($auditData);
+//            }
+//            return $response->json(['message' => 'success']);
+//        }else{
+//            //Se tiver registro no banco de dados, salva somente o que está diferente
+//            foreach ($arrayEntityAuditData as $valueEntity) {
+//                //Verificando se a chave e o valor que está no banco se é igual aos dados da requisição
+//                if (
+//                    array_key_exists($valueEntity["key"], $requestMethod)
+//                    !==
+//                    in_array($valueEntity["value"], $requestMethod)
+//                ) {
+//                    $auditData = [
+//                        'key' => $valueEntity["key"],
+//                        'value' => $valueEntity["value"],
+//                        'object_id' => $entity['entityId'],
+//                        'audit_action_id' => $entity['actionId']
+//                    ];
+//                    AuditData::create($auditData);
+//                }
+//            }
+//            return $response->json(['message' => 'success']);
+//        }
+
     }
 
 }
