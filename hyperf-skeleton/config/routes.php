@@ -25,7 +25,7 @@ Router::addGroup('/opportunity', function (){
 
 Router::addGroup('/user', function (){
 //    Router::get('/{id}', 'App\Controller\OpportunityController@index');
-    Router::post('/login', 'App\Controller\AuditAuthController@index');
+    Router::post('/login', 'App\Controller\AuditAuthController@create');
     Router::get('update', 'App\Controller\OpportunityController@update');
     Router::post('delete', 'App\Controller\OpportunityController@delete');
 });

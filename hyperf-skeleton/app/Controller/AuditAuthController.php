@@ -11,6 +11,13 @@ class AuditAuthController
 {
     public function index(RequestInterface $request, ResponseInterface $response)
     {
-        return $response->raw('Hello Hyperf!');
+        $req = $request->all();
+        return $req;
+    }
+
+    public function create(RequestInterface $request, ResponseInterface $response)
+    {
+//        $req = $request->all();
+//        return $req;
     }
 }

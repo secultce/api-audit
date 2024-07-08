@@ -12,8 +12,11 @@ use App\Model\AuditData;
 use Hyperf\Swagger\Annotation as SA;
 use OpenApi\Annotations as OA;
 
+#[SA\HyperfServer(name: 'http')]
 class OpportunityController extends AbstractController
 {
+    #[SA\Get('/opportunity', summary: 'Retorna dados de uma oportuniade', tags: ['opportunity'])]
+    #[SA\QueryParameter(name: 'id', description: 'Id da Oportunidade')]
     public function index(string $id)
     {
         $auditActionAndData = AuditAction::join('audit_data', 'audit_action.id', '=', 'audit_data.audit_action_id')
