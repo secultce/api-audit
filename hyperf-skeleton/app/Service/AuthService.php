@@ -26,7 +26,10 @@ class AuthService
         {
             try {
                 //Salvando os dados
-                Auth::create($res);
+                $validate = $this->verfifyRequest();
+                if ($validate) {
+                    Auth::create($res);
+                }
                 return $response->json(['message' => 'success']);
             }catch (\Exception $e){
                 return $response->json(['message' => $e->getMessage()]);
@@ -35,7 +38,16 @@ class AuthService
         return $response->json(['data' =>  'Requisição de outro domínio'])->withStatus(403);
     }
 
-    private function env(string $string)
+    private function verfifyRequest() : bool
     {
+        $res = $this->service->all();
+        foreach ($res as $key => $value) {
+            if ($key !== 'referer' && (is_null($value) || $value === '')) {
+                return false;
+            }
+        }
+        return true;
     }
+
+
 }
