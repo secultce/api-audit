@@ -25,6 +25,7 @@ Router::addGroup('/opportunity', function (){
 
 Router::addGroup('/user', function (){
     Router::post('/store', 'App\Controller\AuditAuthController@store');
+    Router::post('/index', 'App\Controller\AuditAuthController@indexTest');
 });
 
 Router::get('/swagger', function () {

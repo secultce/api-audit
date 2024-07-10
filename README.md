@@ -20,3 +20,9 @@ Nossa API foi projetada para suportar as seguintes operações:
 ## 🎯 Objetivo
 
 Nosso principal objetivo é proporcionar uma integração robusta e eficiente, permitindo que a plataforma do Mapa Cultural do Ceará e essa API trabalhem em conjunto de forma harmoniosa. Com isso, pretendemos melhorar a gestão e o compartilhamento de informações das ações dos usuários, para trazer um contexto claro das ações dos usuários os administradores da plataforma.
+
+
+## Instalação
+- Clonar
+- docker compose up
+- docker exec hyperf-skeleton php bin/hyperf.php migrate

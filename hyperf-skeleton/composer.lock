@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7dfd4b9ad64ed6cb30300e352eb318dd",
+    "content-hash": "75ea36c55019d3ea40a6ebd021601d7f",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -2632,23 +2632,23 @@
         },
         {
             "name": "hyperf/guzzle",
-            "version": "v3.1.15",
+            "version": "v3.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/guzzle.git",
-                "reference": "1281abe876925b8ef64a7372d53701fdb9a519cf"
+                "reference": "bdff6806c4f8881704110fdd350495f55ba9f47f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/guzzle/zipball/1281abe876925b8ef64a7372d53701fdb9a519cf",
-                "reference": "1281abe876925b8ef64a7372d53701fdb9a519cf",
+                "url": "https://api.github.com/repos/hyperf/guzzle/zipball/bdff6806c4f8881704110fdd350495f55ba9f47f",
+                "reference": "bdff6806c4f8881704110fdd350495f55ba9f47f",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
                 "php": ">=8.1",
-                "psr/container": "^1.0|^2.0",
-                "psr/http-message": "^1.0|^2.0"
+                "psr/container": "^1.0 || ^2.0",
+                "psr/http-message": "^1.0 || ^2.0"
             },
             "suggest": {
                 "ext-curl": "Required for CURL handler support",
@@ -2681,7 +2681,7 @@
             ],
             "support": {
                 "issues": "https://github.com/hyperf/guzzle/issues",
-                "source": "https://github.com/hyperf/guzzle/tree/v3.1.15"
+                "source": "https://github.com/hyperf/guzzle/tree/v3.1.27"
             },
             "funding": [
                 {
@@ -2693,7 +2693,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-03-23T11:28:51+00:00"
+            "time": "2024-06-17T01:51:06+00:00"
         },
         {
             "name": "hyperf/http-message",
@@ -8906,16 +8906,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.22",
+            "version": "10.5.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8afb89b399b17c2ce2618015bdc9f81a117c5ee1"
+                "reference": "42e2f13ceaa2e34461bc89bea75407550b40b2aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8afb89b399b17c2ce2618015bdc9f81a117c5ee1",
-                "reference": "8afb89b399b17c2ce2618015bdc9f81a117c5ee1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/42e2f13ceaa2e34461bc89bea75407550b40b2aa",
+                "reference": "42e2f13ceaa2e34461bc89bea75407550b40b2aa",
                 "shasum": ""
             },
             "require": {
@@ -8987,7 +8987,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.22"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.26"
             },
             "funding": [
                 {
@@ -9003,7 +9003,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-19T05:29:34+00:00"
+            "time": "2024-07-08T05:30:46+00:00"
         },
         {
             "name": "react/cache",
