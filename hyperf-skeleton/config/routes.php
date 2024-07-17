@@ -23,6 +23,11 @@ Router::addGroup('/opportunity', function (){
     Router::post('delete', 'App\Controller\OpportunityController@delete');
 });
 
+Router::addGroup('/user', function (){
+    Router::post('/store', 'App\Controller\AuditAuthController@store');
+    Router::post('/index', 'App\Controller\AuditAuthController@indexTest');
+});
+
 Router::get('/swagger', function () {
     return file_get_contents(BASE_PATH . '/storage/swagger/http.json');
 });

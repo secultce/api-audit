@@ -15,13 +15,8 @@ use OpenApi\Annotations as OA;
 #[SA\HyperfServer(name: 'http')]
 class OpportunityController extends AbstractController
 {
-    #[SA\Get('/opportunity', summary: 'Retorna dados de uma oportuniade', tags: ['opportunity'])]
+    #[SA\Get('/opportunity', summary: 'Retorna dados de uma oportunidade', tags: ['opportunity'])]
     #[SA\QueryParameter(name: 'id', description: 'Id da Oportunidade')]
-//    #[SA\RequestBody(content: new SA\JsonContent(properties: [
-//        new SA\Property(property: 'nickname', type: 'integer', rules: 'required|string'),
-//        new SA\Property(property: 'gender', type: 'integer', rules: 'required|integer|in:0,1,2'),
-//    ]))]
-    #[SA\Response(response: '200', content: new SA\JsonContent(ref: '#/components/schemas/SavedSchema'))]
     public function index(string $id)
     {
         $auditActionAndData = AuditAction::join('audit_data', 'audit_action.id', '=', 'audit_data.audit_action_id')
@@ -76,38 +71,6 @@ class OpportunityController extends AbstractController
             AuditData::create($auditData);
         }
         return $response->json(['message' => 'success']);
-        //Se não tiver nada no banco, realiza a gravação dos dados
-//        if(count($arrayEntityAuditData) == 0) {
-//            foreach ($requestMethod as $keyAction => $valueAction) {
-//                $auditData = [
-//                    'key' => $keyAction,
-//                    'value' => $valueAction,
-//                    'object_id' => $entity['entityId'],
-//                    'audit_action_id' => $entity['actionId']
-//                ];
-//                AuditData::create($auditData);
-//            }
-//            return $response->json(['message' => 'success']);
-//        }else{
-//            //Se tiver registro no banco de dados, salva somente o que está diferente
-//            foreach ($arrayEntityAuditData as $valueEntity) {
-//                //Verificando se a chave e o valor que está no banco se é igual aos dados da requisição
-//                if (
-//                    array_key_exists($valueEntity["key"], $requestMethod)
-//                    !==
-//                    in_array($valueEntity["value"], $requestMethod)
-//                ) {
-//                    $auditData = [
-//                        'key' => $valueEntity["key"],
-//                        'value' => $valueEntity["value"],
-//                        'object_id' => $entity['entityId'],
-//                        'audit_action_id' => $entity['actionId']
-//                    ];
-//                    AuditData::create($auditData);
-//                }
-//            }
-//            return $response->json(['message' => 'success']);
-//        }
 
     }
 

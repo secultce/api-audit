@@ -13,7 +13,7 @@ return [
     'enable' => true,
     'port' => 9500,
     'output_dir' => BASE_PATH . '/storage/swagger',
-    'output_file' => 'swagger.json',
+    'output_file' => 'http.json',
     'html' => null,
     'url' => '/swagger',
     'auto_generate' => true,
